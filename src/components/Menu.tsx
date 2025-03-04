@@ -19,14 +19,14 @@ import {
   personSharp,
 } from "ionicons/icons";
 
-interface AppPage {
+type MenuLink = {
   url: string;
   iosIcon: string;
   mdIcon: string;
   title: string;
-}
+};
 
-const appPages: AppPage[] = [
+const menuLinks: MenuLink[] = [
   {
     title: "Inicio",
     url: "/",
@@ -58,7 +58,7 @@ const Menu: React.FC = () => {
     <IonMenu contentId="main" type="overlay">
       <IonContent>
         {/* User Info Section */}
-        <div className="px-8 py-4 flex items-center space-x-3 border-b mx-2">
+        <div className="p-4 flex items-center space-x-3 border-b">
           <IonAvatar className="w-10 h-10">
             <img src={user.avatar} alt="User avatar" className="rounded-full" />
           </IonAvatar>
@@ -70,11 +70,11 @@ const Menu: React.FC = () => {
 
         {/* Navigation Links */}
         <IonList className="py-2 px-3 ">
-          {appPages.map((appPage, index) => {
+          {menuLinks.map((item, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
                 <IonItem
-                  routerLink={appPage.url}
+                  routerLink={item.url}
                   routerDirection="none"
                   lines="none"
                   detail={false}
@@ -83,10 +83,10 @@ const Menu: React.FC = () => {
                     aria-hidden="true"
                     slot="start"
                     className="pr-2"
-                    ios={appPage.iosIcon}
-                    md={appPage.mdIcon}
+                    ios={item.iosIcon}
+                    md={item.mdIcon}
                   />
-                  <IonLabel>{appPage.title}</IonLabel>
+                  <IonLabel>{item.title}</IonLabel>
                 </IonItem>
               </IonMenuToggle>
             );
