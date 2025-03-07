@@ -49,4 +49,23 @@
       100% - 112px
     ); /* Adjust this value based on your toolbar height */
   }
+
+  /* Todo Card styles */
+  .todo-card-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Add responsive padding for different screen sizes */
+  @media (min-width: 640px) {
+    .todo-card-container {
+      padding: 0 1rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .todo-card-container {
+      padding: 0 2rem;
+    }
+  }
 }
